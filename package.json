@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "babel-node test.js | tap-spec"
+    "test": "babel-node test.js | tap-spec",
+    "dest": "babel-node debug test.js"
   },
   "browserify": {
     "transform": [

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "babel-node test.js | tap-spec",
-    "dest": "babel-node debug test.js"
+    "dest": "babel-node debug test.js",
+    "build": "browserify ./components/index -o ./components/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "watch" : ""
   },
   "browserify": {
     "transform": [

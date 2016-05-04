@@ -1,4 +1,3 @@
-
 import React from 'react'
 import test from "tape"
 import {shallow} from 'enzyme'
@@ -7,10 +6,10 @@ import App from './basic'
 test("App component", t => {
 
   const imageUrl = 'http://vignette2.wikia.nocookie.net/unmario/images/2/20/Windows98od1.jpg/revision/latest?cb=20091026162140'
+  const comment = "I did not have an affair with that woman!!"
+  const comp = shallow(<App name={'James'} img={imageUrl} />)
 
-  const comp = shallow(<App name={'James'} img={imageUrl}/>)
-
-  const actualText = comp.find('div').text()
+  const actualText = comp.find('p.greeting').text()
 
   t.equal(actualText, "Hello James, how are you?", "it should render a greeting with name given to it")
 
@@ -18,7 +17,8 @@ test("App component", t => {
 
   t.equal(actualImageSrc,imageUrl,"should render an image to the page")
 
-  const comments = shallow(<App comment={"I like this article and windows 98 seems really good"} userName={"Bill"} date={"12/10/1999"})
+  const actualCommentData = comp.find('p.comment').text()
 
+  t.equal(actualCommentData,comment,"Bill clinton made his famous remark")
   t.end()
 })
